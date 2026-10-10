@@ -1,0 +1,514 @@
+[
+ {
+  "tool": "dough",
+  "args": [
+   500,
+   55,
+   12
+  ],
+  "expect": {
+   "dough": 775.0,
+   "wrappers": 64,
+   "leftover": 7.0
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   250,
+   60,
+   12
+  ],
+  "expect": {
+   "dough": 400.0,
+   "wrappers": 33,
+   "leftover": 4.0
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   1000,
+   50,
+   15
+  ],
+  "expect": {
+   "dough": 1500.0,
+   "wrappers": 100,
+   "leftover": 0.0
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   300,
+   45,
+   10
+  ],
+  "expect": {
+   "dough": 435.0,
+   "wrappers": 43,
+   "leftover": 5.0
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   120,
+   55,
+   12
+  ],
+  "expect": {
+   "dough": 186.0,
+   "wrappers": 15,
+   "leftover": 6.0
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   500,
+   55,
+   8
+  ],
+  "expect": {
+   "dough": 775.0,
+   "wrappers": 96,
+   "leftover": 7.0
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   750.5,
+   52.5,
+   12.5
+  ],
+  "expect": {
+   "dough": 1144.5,
+   "wrappers": 91,
+   "leftover": 7.0
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   200,
+   100,
+   20
+  ],
+  "expect": {
+   "dough": 400.0,
+   "wrappers": 20,
+   "leftover": 0.0
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   96,
+   50,
+   12
+  ],
+  "expect": {
+   "dough": 144.0,
+   "wrappers": 12,
+   "leftover": 0.0
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   0,
+   55,
+   12
+  ],
+  "expect": {
+   "error": "flour must be positive"
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   -500,
+   55,
+   12
+  ],
+  "expect": {
+   "error": "flour must be positive"
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   500,
+   0,
+   12
+  ],
+  "expect": {
+   "error": "hydration must be positive"
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   500,
+   55,
+   0
+  ],
+  "expect": {
+   "error": "wrapper weight must be positive"
+  }
+ },
+ {
+  "tool": "dough",
+  "args": [
+   500,
+   -5,
+   12
+  ],
+  "expect": {
+   "error": "hydration must be positive"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   64,
+   15,
+   1000
+  ],
+  "expect": {
+   "needed": 960.0,
+   "possible": 66,
+   "delta": 40.0,
+   "verdict": "enough for every wrapper, 40 g spare"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   64,
+   15,
+   900
+  ],
+  "expect": {
+   "needed": 960.0,
+   "possible": 60,
+   "delta": -60.0,
+   "verdict": "short 60 g - fills only 60 wrappers"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   64,
+   15,
+   960
+  ],
+  "expect": {
+   "needed": 960.0,
+   "possible": 64,
+   "delta": 0.0,
+   "verdict": "enough for every wrapper, 0 g spare"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   50,
+   20,
+   800
+  ],
+  "expect": {
+   "needed": 1000.0,
+   "possible": 40,
+   "delta": -200.0,
+   "verdict": "short 200 g - fills only 40 wrappers"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   30,
+   12,
+   500
+  ],
+  "expect": {
+   "needed": 360.0,
+   "possible": 41,
+   "delta": 140.0,
+   "verdict": "enough for every wrapper, 140 g spare"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   100,
+   18,
+   1500
+  ],
+  "expect": {
+   "needed": 1800.0,
+   "possible": 83,
+   "delta": -300.0,
+   "verdict": "short 300 g - fills only 83 wrappers"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   40,
+   15,
+   0
+  ],
+  "expect": {
+   "needed": 600.0,
+   "possible": 0,
+   "delta": -600.0,
+   "verdict": "short 600 g - fills only 0 wrappers"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   25,
+   14.5,
+   400
+  ],
+  "expect": {
+   "needed": 362.5,
+   "possible": 27,
+   "delta": 37.5,
+   "verdict": "enough for every wrapper, 37.5 g spare"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   80,
+   16,
+   1280
+  ],
+  "expect": {
+   "needed": 1280.0,
+   "possible": 80,
+   "delta": 0.0,
+   "verdict": "enough for every wrapper, 0 g spare"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   0,
+   15,
+   1000
+  ],
+  "expect": {
+   "error": "wrappers must be positive"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   -5,
+   15,
+   1000
+  ],
+  "expect": {
+   "error": "wrappers must be positive"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   64,
+   0,
+   1000
+  ],
+  "expect": {
+   "error": "filling per wrapper must be positive"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   64,
+   -2,
+   1000
+  ],
+  "expect": {
+   "error": "filling per wrapper must be positive"
+  }
+ },
+ {
+  "tool": "filling",
+  "args": [
+   64,
+   15,
+   -100
+  ],
+  "expect": {
+   "error": "filling must not be negative"
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   64,
+   12,
+   8
+  ],
+  "expect": {
+   "rounds": 6,
+   "totalMin": 48.0,
+   "lastRound": 4
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   60,
+   12,
+   8
+  ],
+  "expect": {
+   "rounds": 5,
+   "totalMin": 40.0,
+   "lastRound": 12
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   1,
+   12,
+   8
+  ],
+  "expect": {
+   "rounds": 1,
+   "totalMin": 8.0,
+   "lastRound": 1
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   12,
+   12,
+   10
+  ],
+  "expect": {
+   "rounds": 1,
+   "totalMin": 10.0,
+   "lastRound": 12
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   100,
+   8,
+   12
+  ],
+  "expect": {
+   "rounds": 13,
+   "totalMin": 156.0,
+   "lastRound": 4
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   30,
+   7,
+   6.5
+  ],
+  "expect": {
+   "rounds": 5,
+   "totalMin": 32.5,
+   "lastRound": 2
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   45,
+   15,
+   9
+  ],
+  "expect": {
+   "rounds": 3,
+   "totalMin": 27.0,
+   "lastRound": 15
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   200,
+   25,
+   11
+  ],
+  "expect": {
+   "rounds": 8,
+   "totalMin": 88.0,
+   "lastRound": 25
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   0,
+   12,
+   8
+  ],
+  "expect": {
+   "error": "dumplings must be positive"
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   -10,
+   12,
+   8
+  ],
+  "expect": {
+   "error": "dumplings must be positive"
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   64,
+   0,
+   8
+  ],
+  "expect": {
+   "error": "capacity must be positive"
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   64,
+   12,
+   0
+  ],
+  "expect": {
+   "error": "minutes must be positive"
+  }
+ },
+ {
+  "tool": "cook",
+  "args": [
+   64,
+   -3,
+   8
+  ],
+  "expect": {
+   "error": "capacity must be positive"
+  }
+ }
+]
