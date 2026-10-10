@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dumpling math - dough yield, filling match, batch cooking</title>
+<style>
+  :root { --ink:#2a1409; --accent:#b0481f; --paper:#fbf8f5; --card:#ffffff; --line:#ecddd2; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); }
+  header { padding:2rem 1.25rem 1rem; max-width:960px; margin:0 auto; }
+  h1 { font-size:1.9rem; margin:0 0 .35rem; }
+  header p { margin:.25rem 0; color:#5d3a28; max-width:46rem; line-height:1.45; }
+  .norms { font-size:.9rem; color:#6e4632; margin-top:.6rem; }
+  main { max-width:960px; margin:0 auto; padding:0 1.25rem 3rem; display:grid; gap:1.25rem; }
+  @media (min-width:820px){ main { grid-template-columns:1fr 1fr 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:1.1rem 1.1rem 1.25rem; }
+  .card h2 { font-size:1.15rem; margin:.1rem 0 .5rem; }
+  .card p.desc { font-size:.9rem; color:#6e4632; margin:.2rem 0 .8rem; line-height:1.4; }
+  label { display:block; font-size:.85rem; margin:.55rem 0 .15rem; color:#553626; }
+  input { width:100%; padding:.45rem .5rem; font-size:1rem; border:1px solid var(--line); border-radius:6px; font-family:inherit; background:#fff; }
+  button { margin-top:.8rem; width:100%; padding:.55rem; font-size:1rem; font-family:inherit; background:var(--accent); color:#fff; border:0; border-radius:6px; cursor:pointer; }
+  button:hover { background:#8f3a18; }
+  .out { margin-top:.9rem; font-size:.95rem; line-height:1.5; min-height:3.2rem; }
+  .err { color:#a02323; }
+  footer { max-width:960px; margin:0 auto; padding:0 1.25rem 2.5rem; font-size:.85rem; color:#a37c66; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Dumpling math</h1>
+  <p>Size the dough, match the filling to the wrapper count, plan the steamer rounds. Exact arithmetic, every borrowed number labeled.</p>
+  <p class="norms">Labeled norms: 12 g per 9 cm wrapper, 15 g filling per wrapper, 55% hydration. Minutes per round is a plan, not a doneness verdict - always check your way.</p>
+</header>
+<main>
+  <section class="card" id="dough">
+    <h2>Dough yield</h2>
+    <p class="desc">Flour and hydration become dough weight, wrapper count and the leftover lump.</p>
+    <label for="d-flour">Flour (g)</label>
+    <input id="d-flour" type="number" step="10" min="0" value="500">
+    <label for="d-hyd">Hydration (%)</label>
+    <input id="d-hyd" type="number" step="1" min="1" value="55">
+    <label for="d-wrap">Grams per wrapper</label>
+    <input id="d-wrap" type="number" step="0.5" min="1" value="12">
+    <button id="d-go">Size the dough</button>
+    <div class="out" id="d-out"></div>
+  </section>
+
+  <section class="card" id="filling">
+    <h2>Filling match</h2>
+    <p class="desc">Wrapper count and filling on hand become the grams you need and the gap.</p>
+    <label for="f-wrap">Wrappers to fill</label>
+    <input id="f-wrap" type="number" step="1" min="1" value="64">
+    <label for="f-per">Filling per wrapper (g)</label>
+    <input id="f-per" type="number" step="0.5" min="1" value="15">
+    <label for="f-have">Filling on hand (g)</label>
+    <input id="f-have" type="number" step="10" min="0" value="1000">
+    <button id="f-go">Match the filling</button>
+    <div class="out" id="f-out"></div>
+  </section>
+
+  <section class="card" id="cook">
+    <h2>Batch cooking</h2>
+    <p class="desc">Dumplings, capacity and minutes per round become the plan.</p>
+    <label for="c-count">Dumplings</label>
+    <input id="c-count" type="number" step="1" min="1" value="64">
+    <label for="c-per">Fit per round</label>
+    <input id="c-per" type="number" step="1" min="1" value="12">
+    <label for="c-min">Minutes per round</label>
+    <input id="c-min" type="number" step="0.5" min="1" value="8">
+    <button id="c-go">Plan the rounds</button>
+    <div class="out" id="c-out"></div>
+  </section>
+</main>
+<footer>Built by the app factory. <a href="index.html">About</a> &middot; <a href="https://github.com/iLanis-agent/dumplingmath">Source</a></footer>
+<script src="engine.js"></script>
+<script>
+function num(id){ return parseFloat(document.getElementById(id).value); }
+function show(id, r, render){
+  var el = document.getElementById(id);
+  if (r.error) { el.textContent = r.error; el.classList.add('err'); }
+  else { el.textContent = render(r); el.classList.remove('err'); }
+}
+document.getElementById('d-go').addEventListener('click', function(){
+  show('d-out', DumplingMath.doughYield(num('d-flour'),num('d-hyd'),num('d-wrap')), DumplingMath.renderDough);
+});
+document.getElementById('f-go').addEventListener('click', function(){
+  show('f-out', DumplingMath.fillingMatch(num('f-wrap'),num('f-per'),num('f-have')), DumplingMath.renderFilling);
+});
+document.getElementById('c-go').addEventListener('click', function(){
+  show('c-out', DumplingMath.batchCook(num('c-count'),num('c-per'),num('c-min')), DumplingMath.renderCook);
+});
+</script>
+</body>
+</html>
