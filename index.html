@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dumpling math</title>
+<style>
+  :root { --ink:#2a1409; --accent:#b0481f; --paper:#fbf8f5; --line:#ecddd2; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Georgia,'Times New Roman',serif; background:var(--paper); color:var(--ink); }
+  .wrap { max-width:760px; margin:0 auto; padding:3rem 1.25rem; }
+  h1 { font-size:2.4rem; margin:0 0 .6rem; }
+  p.lede { font-size:1.1rem; line-height:1.55; color:#5d3a28; }
+  .cta { display:inline-block; margin:1.2rem 0 2rem; padding:.7rem 1.6rem; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; font-size:1.05rem; }
+  .cta:hover { background:#8f3a18; }
+  h2 { font-size:1.2rem; margin:2rem 0 .4rem; }
+  ul { line-height:1.6; color:#553626; padding-left:1.2rem; }
+  .norms { border:1px solid var(--line); border-radius:8px; padding:.9rem 1.1rem; background:#fff; font-size:.92rem; color:#6e4632; line-height:1.5; }
+  footer { margin-top:3rem; font-size:.85rem; color:#a37c66; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Dumpling math</h1>
+  <p class="lede">Every dumpling session ends the same way: a sad lump of extra dough, or a bowl of filling with no wrappers left to hold it. Dumpling math sizes the dough from the flour, matches the filling to the wrapper count before you chop, and plans the steamer rounds so the last batch lands hot. Exact arithmetic, every borrowed number labeled.</p>
+  <a class="cta" href="app.html">Open the calculators</a>
+
+  <h2>The three tools</h2>
+  <ul>
+    <li><b>Dough yield</b> - flour and hydration become dough weight, wrapper count, and the leftover lump.</li>
+    <li><b>Filling match</b> - wrapper count and filling per wrapper become the grams you need, and whether the bowl on hand is enough.</li>
+    <li><b>Batch cooking</b> - dumplings, basket capacity and minutes per round become the round count and total time.</li>
+  </ul>
+
+  <h2>Labeled norms</h2>
+  <div class="norms">
+    Wrapper weight defaults to 12 g (a classic 9 cm round), filling to 15 g per wrapper, hydration to 55%. Minutes per round is a plan, not a verdict - always check doneness your way. These are kitchen norms from common recipes, not law - your flour, your rollers and your stove win.
+  </div>
+
+  <footer>Built by the app factory. <a href="https://github.com/iLanis-agent/dumplingmath">Source on GitHub</a></footer>
+</div>
+</body>
+</html>
